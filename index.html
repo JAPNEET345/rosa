@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE ROSA</title>
+    <!--Font awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/app.css">
+    <!--Scroll reveal CDN-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+    /*global styling*/
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    .root{
+    --main-font:"Source Sans Pro", sans-sarif;
+    --secondary-font:'Hurr  Von  Muellerhoff', cursive;
+    --body-font: 'Cabin',sans-sarif;
+    --main-font-color: black;
+    --secondary-font-color: yellow;
+    --body-font-color: hotpink;
+    }
+
+body{
+    background-color: yellow;
+}
+    
+
+    html{
+        font-family: var(--body-font);
+        font-size: 10px;
+        color: var(--body-font-color);
+        scroll-behavior: smooth;
+    }
+
+    .section{
+        padding: 3.9rem 0;
+    }
+
+
+    a{
+        text-decoration: none;
+    }
+    p{
+        font-size: 1.9rem;
+    }
+
+    .container{
+        width: 100%;
+        max-width: 122.5rem;
+        margin: 0 auto;
+        padding: 0 2.4rem;
+    }
+
+    /*hEADER*/
+    header{
+        width: 100%;
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:1;
+        background-image:linear-gradient(to bottom,rgba(0,0,0,0.5),transparent);
+    }
+
+    .nav{
+        height: 8rem;
+        font-size: 13px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    nav ul{
+            float:right;
+            margin-right: 20px;
+        }
+        nav ul li{
+            display:inline-block;
+            line-height:  70px;
+            margin:0 5px;
+        }
+
+        nav ul li a{
+            color: yellow;
+            font-size: 1.8rem;
+            margin: auto;
+            padding: 7px 13px;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+
+        nav ul li a:hover{
+            color: greenyellow;
+        }
+
+
+    .menu-toggle{
+        color:white;
+        font-size: 2.2rem;
+        position:absolute;
+        top: 50%;
+        transform:translateY(-50%);
+        left: 2.5rem;
+        cursor:pointer;
+        z-index: 1500;
+    }
+
+    .menu-toggle:hover{
+        color: yellow;
+        font-size: 2.7rem;
+    }
+
+
+    
+
+    .fa-times{
+        display: none;
+    }
+    
+    .nav::before{
+        content:"";
+        position:fixed;
+        top:0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color:rgba(0,0,0,0.1);
+        z-index:1000;
+        opacity: 0;
+        transform: scale(0);
+        transition: transform .2s;
+    }
+
+    .open  .fa-times{
+        display: block;
+    }
+
+    
+     
+     .open .nav-list{
+         transform:translateX(0);
+     }
+
+     .open .nav::before{
+         opacity:1;
+         transform:scale(1);
+     }
+
+     .nav-item{
+         border-bottom: 2px solid rgba(255,255,255,.3);
+     }
+
+     /*Hero*/
+     .hero{
+         width: 100%;
+         height: 100vh;
+         background:url("/assets/light\ restaurant.jpeg") center no-repeat;
+         background-size:cover;
+         display: flex;
+         align-items:center;
+         text-align: center;
+     }
+
+     .sub-headline{
+         font-size: 3.5rem;
+         font-family: var(--secondary-font);
+         color: var(--secondary-font-color);
+         font-weight: 100;
+         line-height: .4;
+         letter-spacing: 2px;
+
+
+     }
+
+     
+
+     .first-letter{
+         text-transform: uppercase;
+         font-size: 4rem;
+         color: crimson;
+         font-weight: 400;
+     }
+
+     .headline{
+         color: hotpink;
+         font-size: 3.7rem;
+         font-family: var(--main-font);
+         text-transform: uppercase;
+         font-weight: 900;
+         letter-spacing: .5rem;
+         margin-right: -.5rem;
+     }
+
+
+     .separator{
+         display: flex;
+         align-items:center;
+         justify-content: center;
+     }
+
+     .headline-description h5{
+         color: white;
+         font-size: 1.4rem;
+         font-weight: 200;
+         margin-bottom: 1.2rem;
+         letter-spacing: 3px;
+         margin-right: -3px;
+     }
+
+.btn{
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing:  2px;
+    margin-right: -2px;
+}
+ .cta-btn{
+    font-size: 1.4rem;
+    background-color: springgreen;
+    color: white;
+    border-radius: .4rem;
+    transition: background .3s;
+}
+
+.cta-btn:hover,
+.cta-btn:focus{
+    color: yellow;
+    background-color:hotpink;
+}
+
+/*Discover Our Story*/
+.global-headline{
+    text-align:center;
+    margin-top: 3.9rem;
+}
+
+.discover-our-story .global-headline{
+    margin-top: 6.3rem;
+}
+    .global-headline .asterisk{
+        color: white;
+        margin: 2.4rem 0;
+    }
+.headline-dark{
+    color: black;
+    letter-spacing: .7rem;
+    margin-right: -.7rem;
+}
+
+.global-headline-sub-headline{
+    letter-spacing: -1px;
+    line-height: .42;
+
+}
+
+.restaurant-info{
+    text-align:center;
+}
+.restaurant-description{
+    margin-bottom:1rem;
+}
+
+.restaurant-description p{
+    line-height: 1.4;
+    margin-bottom: 2.4rem;
+}
+
+.body-btn{
+    
+    font-size: 1.5rem;
+    color: black;
+    position:relative;
+    transition: color .2s;
+}
+
+.body-btn::before{
+    content:"";
+    position: absolute;
+    left:0;
+    bottom: -3px;
+    background-color: red;
+    transition:background-color .3s;
+}
+
+.body-btn:hover{
+    background-color:springgreen;
+    color: black;
+}
+/*Discover our Menu*/
+.image-group{
+    display: grid;
+    grid-template-columns: repeat(2,lfr);
+    grid-gap: 1.5rem;
+}
+
+.discover-our.menu .restaurant-description{
+    padding-top:3rem;
+    margin-bottom: 0;
+}
+
+/*The perfect Blend*/
+.perfect-blend{
+background-size:cover;
+}
+.btn{
+         color: black;
+         size: 20px;
+         cursor:pointer;
+         display:flex;
+
+     }
+
+     .center{
+         position:absolute;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         margin-top: 200px;
+         width:400px;
+         background: springgreen;
+         border-radius: 10px;
+     }
+  
+
+     /*Footer*/
+     .footer-content{
+        padding: 7rem 1;
+        padding-left: 10px;
+         background-color: black;
+         color: whitesmoke;
+         text-align:center;
+         position:absolute;
+     }
+     .back-to-top{
+         width: 7rem;
+         height: 7rem;
+         background-color: crimson;
+         position: absolute;
+         top: -3rem;
+         left: 50%;
+         transform: translateX(-50%);
+         border-radius: 50%;
+     }
+
+     .back-to-top i{
+         display: block;
+         color:aliceblue;
+         font-size: 2rem;
+         padding: 2rem;
+     }
+
+    h2{
+        color: yellow;
+        font-weight: 300;
+        font-size: 20px;
+    }
+
+    .socials i{
+        size: 7rem;
+        color: springgreen;
+        opacity: .5;
+        transition: color .3s;
+    }
+
+    .contact{
+        size: 1.2rem;
+        color: yellow;
+    }
+
+.footer-bottom{
+    color: hotpink;
+    size: 3rem;
+}
+
+.search-icon{
+    height: 40px;
+         width: 180px;
+         display: flex;
+         background: grey;
+         border-radius: 5px;
+         align-content:center;
+         justify-content: center;
+
+}
+
+.search-icon input{
+    height: 100%;
+         width: 150px;
+         outline:none;
+         padding: 0 10px;
+         color: black;
+         border-radius: 5px 0 0 5px;
+}
+.center{
+         position:absolute;
+         left: 50%;
+         transform: translate(-50%,-50%);
+         margin-top: 200px;
+         width:400px;
+         background: springgreen;
+         border-radius: 10px;
+     }
+  
+  
+
+
+
+
+     
+</style>
+<body class="open">
+          <header>
+              <div class="container">
+                  <nav class="nav">
+                      <div class="menu-toggle">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+
+                      </div>
+                        <ul>
+                            <li><a href="#">HOME</a></li>
+                            <li> <a href="#">ABOUT</a></li>
+                            <li><a href="#">SERVICES</a></li>
+                            <li><a href="#">CONTACTS</a></li>
+                            <li><a href="#">FEEDBACK</a></li>
+                        </ul>
+                  </nav>
+              </div>
+          </header>
+
+                    
+            </div>
+        </nav>
+    </div>
+</header>
+<!---header ends-->
+<section class="hero" id="hero">
+    <div class="container">
+        <h2 class="sub-headline">
+            <span class="first-letter">WELCOME TO THE ROSA</span>
+        </h2>
+        <br>
+        <h1 class="headline">THE ROSA</h1>
+        <div class="headline-description">
+            <div class="separtor">
+                <div class="line line-left"></div>
+                <div class="asterisk"><i class="fa fa-asterisk" aria-hidden="true"></i></div>
+                <div class="line line right"></div>
+            </div>
+            <br>
+            <div class="single-animation">
+                <h5>READY TO  BE OPEN</h5>
+            </div>
+        </div>
+    </div>
+</section>
+<!--HERO ENDS-->
+<section class="discover-out-story">
+    <div class="container">
+        <div class="restaurant-info">
+            <div class="restaurant-description padding-right animate-left">
+                <div class="global-headline">
+                    <h2 class="sub-headline">
+                        <br>
+                        <span class="first-letter">DISCOVER</span>
+                    </h2>
+                    <br>
+                    <h2 class="headline">OUR STORY</h2>
+                </div>
+                <p>
+                    Rosa is a beautiful place to enjoy,have food ,chill spend good evening with family,friends .Its like mini heaven you can find everything here satrting from food,clothes to games ,receatio activiities. It contain myraid kind of lusvicious dishes which bring water to our mouth within fractiion of seconds.Their taste is offbeaten and uncomparable</p>
+                <p>Its not completely a rstaurant or a pub,its like mini substantial hub which can give you everyhing what you want</p>
+                <p>ROSA is like a second heaven to almost every person becaise the essnce,the vibe is is just shooting the sky, the amzing invisible energy is flowing through is lio-smacking and pulse-pounding</p>
+                </p>
+                <a href="#" class="btn body-btn">ABOUT US</a>
+            </div>
+            <div class="restaurant-info-img animate-right">
+                <img src="/assets/chowmain.jpeg">
+            </div>
+        </div>
+    </div>
+</section>
+<!--Discover our story ends here-->
+<section class="discover-out-story">
+    <div class="container">
+        <div class="restaurant-info">
+            <div class="restaurant-description padding-right animate-left">
+                <div class="global-headline">
+                    <h2 class="sub-headline">
+               <br>
+               <span class="first-letter">TASTY</span>
+            </h2>
+            <br>
+            <h2 class="headline">FRENCH FRIES</h2>
+        </div>
+            <p>
+        The mouth-watering french -fries are the epitome of this place.It is the  biggest attraction which keep on gluing people to his marrow. This restaurant ratings are majority beacsuse of his mouth-watering french-fires which are lip-smacking and pulse-pounding</p>
+        <p>Its tastes has left many in splits,its crunchy ,flushy and crispy tastes has left many has ignited fire in millions of lips and has brought smilein millions of faces beacasuse of his taste,low price,handy and managble amount 
+        <p>It has golden-brown flavour which is drown in oil,salt,masalas,prices and many prservatices</p>  
+        <p>Its strutute is long,thin and flushy whcuh his filled with poatatoes,massals thus makung it the most popular dish in north india</p>
+        </p>
+<img src="/assets/french fries.jpeg">
+</section>
+<!--Discover our story ends here too-->
+<br>
+<section class="discover-our-menu">
+    <div class="container">
+        <div class="restaurant-info">
+            <div class="image-group padding-right animate-left">
+                <br>
+                <img src="/assets/pastries.jpeg" width="200" height="200">
+                <p>The pasteries here are dough  of flour,water and shortening that may be savoury or sweetened.Sweetened pasteries are often described as  bakers confectionary.The word pastries suggests many kinds of vaked produts made from ingredints such as flour,sugar,milk ,butter,shortening ,baking powder and eggs </p>
+                <img src="/assets/donuts.jpeg" width="200" height="200">
+                <p>It is natype of fried dough confection or deseert food .It is popular in many countries and is prepared in various forms as a sweet snack that can be homemade or purchassed in bakeries,supermarkets</p>
+                <img src="/assets/burger.jpeg" width="200" height="200">
+                <p>It scruncgy and spicy grillled burhers are very delcious and must tasted.The have wide varities of burgers like chiken chicken masals,chikken tikka and many more</p>
+                <img src="/assets/chilly potsato.jpeg" widh="200" height="200">    
+                <p>It has basically a potatao filled and enriched with sauce,masala,,sodium and zero cholestrol and some ingredients of sodium and potasssium</p>       
+            <div class="restaurant-description animate-right">
+                <div class="global-headline">
+                    <h2 class="sub-headline">
+                        <br>
+                        <span class="first-letter">DISCOVER  OUR</span>
+                    </h2>
+                    <h1 class="headline headline-dark">MENU</h1>
+                    <p>
+                        You can find myraid kind of delicious foods,drinks,shampoens,beer and all sorts of things which are very commom in pubs and bars</p>
+                        <p>You can enjoy the music whcih is contionusly producing its energtic waves to minds of people and force themselves to enjoy,dance and beat the heat</p>
+                        <p>It is not less than small heaven where you can find anything ,expect sex</p>
+                        <p>It is widely popular restaurant cum pub cum bar which is 24/7 open for everybody</p>
+                    </p>
+                    <img src="/assets/menu.jpeg">
+                    <!--Discover our story ends too-->
+                    <section class="discover-out-story">
+                        <div class="container">
+                            <div class="restaurant-info">
+                                <div class="restaurant-description padding-right animate-left">
+                                    <div class="global-headline">
+                                        <h2 class="sub-headline">
+                                   <br>
+                                   <span class="first-letter">LOCATION OF</span>
+                                </h2>
+                                    </div>
+                                    <div class="animate-bottom"></div>
+                                <h1 class="headline">RESTAUARNT</h2>
+                            </div>
+                                <p> 
+                                 Its an idiom that when beauty surrounds beauty everything will be beautiful and yeah that's true. This locatin is itself located in a very calm,marvellous location which is showered with stupendous flowers at every spot. The location is eye-catching and anybody can be trabsfixed with amzament on seeeing the that angel has spread her wings to us</p>
+<img src="/assets/location.jpeg">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<br>
+<br>
+<br>
+
+<footer>
+    <div class="container">
+        <div class="back-to-top">
+
+        </div>
+        <div class="footer-content">
+            <div class="footer-content-about animate-up">
+                <h2>CONCULSION</h2>
+                <br>
+                
+                <p>
+                    So That'all about ROSA lastly to conclude that it is abeautiful reestaurant located in the worlds most stupendous places in the world ,its like heaven on earth and its must visuted place by the resudents and toursists which makes it more unique and special</p>
+                    <br>
+                <p>If you have any queries feel free to contacts us</p>
+                <br>
+                <div class="contact">
+                    <span><i class="fa fa-phone" aria-hidden="true"></i> &nbsp; 123-345-789</span> &nbsp; &nbsp; &nbsp;
+                    <span><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp; info@beautifulcreations.com</span> &nbsp; &nbsp; &nbsp;
+        
+<br>
+<br>
+            </div>
+            <div class="footer-content-divider animate-bottom"></div>
+            <div class="social-menu">
+            
+                
+
+                
+            <div class="newsletter-container">
+                <h4>NEWSLETTER</h4>
+                <br>
+                <li class="search-icon">
+                    <input type="search" placeholder="email...">
+                    <span class="fa fa-search" aria-hidden="true">
+                </li>
+
+                    </button>
+
+                    <br>
+                    <div class="socials">
+                        <h2>FOLLOW US ON</h2>
+                        <br>
+                        <a href="#"><i class="fab fa-facebook"></i></a> &nbsp; &nbsp; &nbsp;
+                        <a href="#"><i class="fab fa-instagram"></i></a> &nbsp; &nbsp; &nbsp;
+                        <a href="#"><i class="fab fa-twitter"></i></a> &nbsp; &nbsp; &nbsp;
+                        <a href="#"><i class="fab fa-youtube"></i></a> &nbsp; &nbsp; &nbsp;
+                    </div>
+
+
+
+                </form>
+            </div>
+            <div class="footer-bottom">
+                @copy beautifulcreations.com \ Designed by JAPNEET NAYYAR
+            </div>
+                
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+<script>
+    //Select Element Function
+    const selectElement = function (element) {
+        return document.querySelector(element);
+    };
+
+    let menuToggler = selectElement('menu.toggle');
+    let body =selectElement('body');
+
+    menuToggler.addEventListener('click', function(){
+        body.classList.toggle('open');
+    });
+
+    
+    
+
+</script>
+    
+</body>
+</html>
